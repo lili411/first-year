@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//有三个三胞胎，我想他们只是名字不一样，所以想用大毛的对象改了名字给二毛还有小明用，
+		// 但是又不改变大毛的名字
+			// var firstbrother = {person:{name: "大毛",male:"男",long:180,birstday:"2003.04.11"} };
+			// var secondbrother = {};
+			// var thirdbrother={};
+			// Object.assign(secondbrother, firstbrother);//使用浅拷贝实现
+			// Object.assign(thirdbrother, firstbrother);
+			// secondbrother.person.name="二毛";//分别改名字
+			// thirdbrother.person.name="小明";
+			// console.log(firstbrother);
+			// console.log(secondbrother);
+			// console.log(thirdbrother);
+			// 但是这个代码运行发现名字全变成小明了，使用浅拷贝的缺点就在这了
+			// 下面是深拷贝的代码
+			 var firstbrother = {person:{name: "大毛",male:"男",long:180,birstday:"2003.04.11"} };
+			 var secondbrother = {};
+			 var thirdbrother={};
+			 var secondbrother=JSON.parse(JSON.stringify(firstbrother));//实现深拷贝
+			  var thirdbrother=JSON.parse(JSON.stringify(firstbrother));
+			 secondbrother.person.name="二毛";//分别改名字
+			 thirdbrother.person.name="小明";
+			 console.log(firstbrother);
+			 console.log(secondbrother);
+			 console.log(thirdbrother);
+			 发现名字都不同了，深拷贝针不戳！
+		</script>
+	</body>
+</html>
